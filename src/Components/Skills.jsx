@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useSpring, animated } from "@react-spring/web";
 import { useInView } from "react-intersection-observer";
@@ -63,7 +63,7 @@ const SkillCard = ({ skill, index, isHovered, setIsHovered }) => {
   // If skill data doesn't exist, render a fallback
   if (!skillInfo) {
     return (
-      <div className="px-4 py-3 bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-xl text-white font-medium shadow-lg transition-all duration-300 flex flex-col items-center gap-2 relative cursor-pointer hover:border-white/30 min-w-[120px] md:min-w-[150px]">
+      <div className="px-4 py-3 bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-xl text-white font-medium shadow-lg transition-all duration-300 flex flex-col items-center gap-2 relative cursor-pointer hover:border-white/30 min-w-[140px] md:min-w-[160px]">
         <span className="text-base md:text-lg font-medium text-center">{skill}</span>
       </div>
     );
@@ -91,7 +91,7 @@ const SkillCard = ({ skill, index, isHovered, setIsHovered }) => {
   return (
     <animated.div
       style={springProps}
-      className="px-4 py-3 bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-xl text-white font-medium shadow-lg transition-all duration-300 flex flex-col items-center gap-2 relative cursor-pointer hover:border-white/30 min-w-[120px] md:min-w-[150px] bg-gradient-to-br from-black"
+      className="px-4 py-3 bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-xl text-white font-medium shadow-lg transition-all duration-300 flex flex-col items-center gap-2 relative cursor-pointer hover:border-white/30 min-w-[140px] md:min-w-[160px]"
       onMouseEnter={() => setIsHovered(`${skill}-${index}`)}
       onMouseLeave={() => setIsHovered(null)}
     >
@@ -105,10 +105,21 @@ const SkillCard = ({ skill, index, isHovered, setIsHovered }) => {
       )}
       <span className="text-base md:text-lg font-medium text-center">{skill}</span>
       
-      {/* Tooltip */}
+      {/* Permanent description display - always visible below the skill name */}
+      {description && (
+        <p className="text-xs text-gray-400 text-center mt-1 overflow-hidden" style={{ 
+          display: '-webkit-box',
+          WebkitLineClamp: 2,
+          WebkitBoxOrient: 'vertical'
+        }}>
+          {description}
+        </p>
+      )}
+      
+      {/* Tooltip - visible on hover for all screen sizes */}
       {isHovered === `${skill}-${index}` && description && (
         <motion.div 
-          className="absolute bottom-full left-1/2 transform -translate-x-1/2 -translate-y-2 bg-gray-800 text-white text-sm rounded-lg px-3 py-2 whitespace-nowrap border border-gray-700 shadow-xl md:hidden"
+          className="absolute bottom-full left-1/2 transform -translate-x-1/2 -translate-y-2 bg-gray-800 text-white text-sm rounded-lg px-3 py-2 whitespace-nowrap border border-gray-700 shadow-xl"
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 10 }}
@@ -130,6 +141,7 @@ const SkillCard = ({ skill, index, isHovered, setIsHovered }) => {
 const Skills = () => {
   const [hoveredSkill, setHoveredSkill] = useState(null);
   const [activeCategory, setActiveCategory] = useState("All");
+  const [isClient, setIsClient] = useState(false); // For hydration safety
   const carouselRef = useRef(null);
   
   // Intersection observer for scroll animation
@@ -137,6 +149,11 @@ const Skills = () => {
     triggerOnce: false,
     threshold: 0.1,
   });
+
+  // Set isClient to true after mount to prevent hydration issues
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   // Animation variants
   const containerVariants = {
@@ -166,6 +183,74 @@ const Skills = () => {
 
   // Create duplicated skills for infinite scrolling effect (using slice to make it deterministic)
   const duplicatedSkills = [...skills.slice(), ...skills.slice(), ...skills.slice()];
+
+  // Don't render carousel on server to prevent hydration mismatches
+  if (!isClient) {
+    return (
+      <motion.section 
+        ref={ref}
+        id="skills"
+        className="py-16 bg-black"
+        initial="hidden"
+        animate={inView ? "visible" : "hidden"}
+        variants={containerVariants}
+      >
+        <div className="container mx-auto px-4">
+          <motion.h2 
+            className="text-3xl md:text-4xl font-semibold text-center mb-4 text-white"
+            variants={itemVariants}
+          >
+            <span className="bg-gradient-to-r from-white to-gray-400 text-transparent bg-clip-text">
+              Technical Skills
+            </span>
+          </motion.h2>
+          
+          <motion.p 
+            className="text-gray-400 text-center mb-8 md:mb-12 max-w-2xl mx-auto font-normal"
+            variants={itemVariants}
+          >
+            Here are the technologies and tools I work with to build amazing digital experiences
+          </motion.p>
+          
+          {/* Category Filters */}
+          <motion.div 
+            className="flex flex-wrap justify-center gap-2 mb-8 md:mb-12"
+            variants={itemVariants}
+          >
+            <button
+              className={`px-3 py-2 md:px-4 md:py-2 rounded-full text-sm font-medium transition-all ${
+                activeCategory === "All"
+                  ? "bg-gradient-to-r from-white to-gray-400 text-black"
+                  : "bg-gray-800 text-gray-300 hover:bg-gray-700"
+              }`}
+              onClick={() => setActiveCategory("All")}
+            >
+              All Skills
+            </button>
+            
+            {Object.keys(skillCategories).map((category) => (
+              <button
+                key={category}
+                className={`px-3 py-2 md:px-4 md:py-2 rounded-full text-sm font-medium transition-all ${
+                  activeCategory === category
+                    ? `bg-gradient-to-r ${skillCategories[category].color} text-black`
+                    : "bg-gray-800 text-gray-300 hover:bg-gray-700"
+                }`}
+                onClick={() => setActiveCategory(category)}
+              >
+                {category}
+              </button>
+            ))}
+          </motion.div>
+          
+          {/* Loading placeholder */}
+          <div className="flex justify-center py-10">
+            <div className="text-gray-400">Loading skills...</div>
+          </div>
+        </div>
+      </motion.section>
+    );
+  }
 
   return (
     <motion.section 

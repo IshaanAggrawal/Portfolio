@@ -2,8 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import GradientText from './GradientText';
-import TypeIt from "typeit-react";
+import { assets } from '../assets/assets';
 
 function HeroSection() {
   // Animation variants
@@ -22,16 +21,6 @@ function HeroSection() {
     visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
   };
 
-  // Glowing Border Effect Component
-  const GlowingBorder = () => {
-    return (
-      <div className="absolute inset-0 rounded-full">
-        <div className="absolute inset-0 rounded-full border-4 border-green-400/20 animate-pulse"></div>
-        <div className="absolute inset-0 rounded-full border-4 border-emerald-500/10 animate-ping opacity-50"></div>
-      </div>
-    );
-  };
-
   return (
     <div className="relative h-screen overflow-hidden bg-gradient-to-br from-gray-900 via-gray-950 to-black">
       {/* Center Content */}
@@ -42,54 +31,38 @@ function HeroSection() {
           animate="visible"
           variants={containerVariants}
         >
-          {/* Enhanced Profile Section with Glowing Border */}
+          {/* Profile Image */}
           <motion.div 
             className="relative mb-6"
             variants={itemVariants}
             animate={{ y: [0, -15, 0] }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
           >
-            <div className="w-40 h-40 md:w-52 md:h-52 rounded-full bg-gradient-to-br from-green-400 via-emerald-500 to-teal-600 flex items-center justify-center relative overflow-hidden">
-              <div className="absolute inset-0 bg-black/10"></div>
-              <div className="text-5xl md:text-7xl">👨‍💻</div>
-              <GlowingBorder />
+            <div className="w-40 h-40 md:w-52 md:h-52 rounded-full bg-gradient-to-br from-green-400 via-emerald-500 to-teal-600 p-1">
+              <div className="w-full h-full rounded-full overflow-hidden bg-gray-800">
+                <img 
+                  src={assets.profile_img.src || assets.profile_img} 
+                  alt="Ishaan Aggrawal" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              {/* Glowing Border Effect */}
+              <div className="absolute inset-0 rounded-full">
+                <div className="absolute inset-0 rounded-full border-4 border-green-400/20 animate-pulse"></div>
+                <div className="absolute inset-0 rounded-full border-4 border-emerald-500/10 animate-ping opacity-50"></div>
+              </div>
             </div>
           </motion.div>
 
-          {/* Headline with Green GradientText */}
+          {/* Headline with "Hi I am" in white and "Ishaan Aggrawal" in green */}
           <motion.h1 
-            className="text-3xl md:text-5xl font-semibold text-white mb-4"
+            className="text-3xl md:text-5xl font-semibold mb-4"
             variants={itemVariants}
             style={{ fontFamily: "'Space Grotesk', sans-serif" }}
           >
-            <GradientText
-              colors={["#00ff9d", "#00d48a", "#00a36c", "#00ff9d", "#00d48a"]}
-              animationSpeed={5}
-              showBorder={true}
-              className="text-3xl md:text-5xl font-semibold"
-              style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-            >
-              Hi I&apos;m Ishan Aggarwal
-            </GradientText>
+            <span className="text-white font-sans">Hi I am </span>
+            <span className="text-green-400">Ishaan Aggrawal</span>
           </motion.h1>
-
-          {/* Developer Title with TypeIt Animation */}
-          <motion.h2 
-            className="text-lg md:text-xl text-green-300 mb-6 font-medium"
-            variants={itemVariants}
-            style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-          >
-            <TypeIt
-              options={{
-                strings: ["Frontend Developer", "UI/UX Enthusiast", "React Specialist"],
-                speed: 50,
-                loop: true,
-                breakLines: false,
-                nextStringDelay: 2000,
-                lifeLike: true
-              }}
-            />
-          </motion.h2>
 
           {/* Simplified Subheading */}
           <motion.p 
@@ -97,7 +70,7 @@ function HeroSection() {
             variants={itemVariants}
             style={{ fontFamily: "'Inter', sans-serif" }}
           >
-            Creating <span className="text-green-400 font-medium">modern</span> and <span className="text-emerald-400 font-medium">performant</span> web experiences
+            Creating modern and performant web experiences
           </motion.p>
 
           {/* Green Gradient Buttons */}

@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { motion } from "framer-motion";
 import { FaGithub, FaTelegram, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa"
 import { FiMail, FiPhone, FiMapPin, FiCheck } from "react-icons/fi"
@@ -15,11 +15,17 @@ export default function Contact() {
   
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
+  const [isClient, setIsClient] = useState(false); // For hydration safety
 
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
+
+  // Set isClient to true after mount to prevent hydration issues
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   // Animation variants
   const containerVariants = {
@@ -75,6 +81,148 @@ export default function Contact() {
       setIsSubmitting(false);
     }
   };
+
+  // Don't render form on server to prevent hydration mismatches
+  if (!isClient) {
+    return (
+      <motion.section 
+        ref={ref}
+        className="min-h-screen w-full bg-black flex items-center justify-center px-4 md:px-6 py-16"
+        initial="hidden"
+        animate={inView ? "visible" : "hidden"}
+        variants={containerVariants}
+      >
+        <div className="max-w-6xl mx-auto w-full">
+          {/* Heading */}
+          <motion.div 
+            className="text-center mb-12 md:mb-16"
+            variants={itemVariants}
+          >
+            <motion.h2 
+              className="text-3xl md:text-4xl lg:text-5xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400 mb-4"
+              variants={itemVariants}
+            >
+              Let's Connect
+            </motion.h2>
+            <motion.p 
+              className="text-gray-400 max-w-2xl mx-auto text-base md:text-lg font-normal"
+              variants={itemVariants}
+            >
+              Have a project in mind or want to discuss potential opportunities? 
+              Feel free to reach out — I'm always open to new ideas and collaborations.
+            </motion.p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
+            {/* Contact Info & Social Links */}
+            <motion.div variants={itemVariants}>
+              <div className="space-y-6 md:space-y-8">
+                {/* Contact Info Cards */}
+                <div className="space-y-4 md:space-y-6">
+                  <motion.div 
+                    className="flex items-start gap-3 md:gap-4 p-4 md:p-6 bg-gray-800/30 backdrop-blur-sm border border-gray-700/50 rounded-xl"
+                    transition={{ duration: 0.3 }}
+                  >
+                    <div className="p-2 md:p-3 bg-green-500/10 rounded-lg">
+                      <FiMail className="text-green-400 text-lg md:text-xl" />
+                    </div>
+                    <div>
+                      <h3 className="text-white font-medium text-base md:text-lg">
+                        <span className="bg-gradient-to-r from-white to-gray-300 text-transparent bg-clip-text">
+                          Email
+                        </span>
+                      </h3>
+                      <p className="text-gray-400 text-sm md:text-base font-normal">ishaanaggrawal101@gmail.com</p>
+                    </div>
+                  </motion.div>
+
+                  <motion.div 
+                    className="flex items-start gap-3 md:gap-4 p-4 md:p-6 bg-gray-800/30 backdrop-blur-sm border border-gray-700/50 rounded-xl"
+                    transition={{ duration: 0.3 }}
+                  >
+                    <div className="p-2 md:p-3 bg-green-500/10 rounded-lg">
+                      <FiPhone className="text-green-400 text-lg md:text-xl" />
+                    </div>
+                    <div>
+                      <h3 className="text-white font-medium text-base md:text-lg">
+                        <span className="bg-gradient-to-r from-white to-gray-300 text-transparent bg-clip-text">
+                          Phone
+                        </span>
+                      </h3>
+                      <p className="text-gray-400 text-sm md:text-base font-normal">+1 (123) 456-7890</p>
+                    </div>
+                  </motion.div>
+
+                  <motion.div 
+                    className="flex items-start gap-3 md:gap-4 p-4 md:p-6 bg-gray-800/30 backdrop-blur-sm border border-gray-700/50 rounded-xl"
+                    transition={{ duration: 0.3 }}
+                  >
+                    <div className="p-2 md:p-3 bg-green-500/10 rounded-lg">
+                      <FiMapPin className="text-green-400 text-lg md:text-xl" />
+                    </div>
+                    <div>
+                      <h3 className="text-white font-medium text-base md:text-lg">
+                        <span className="bg-gradient-to-r from-white to-gray-300 text-transparent bg-clip-text">
+                          Location
+                        </span>
+                      </h3>
+                      <p className="text-gray-400 text-sm md:text-base font-normal">San Francisco, CA</p>
+                    </div>
+                  </motion.div>
+                </div>
+
+                {/* Social Links */}
+                <motion.div variants={itemVariants}>
+                  <h3 className="text-xl font-medium text-white mb-4">
+                    <span className="bg-gradient-to-r from-white to-gray-300 text-transparent bg-clip-text">
+                      Follow Me
+                    </span>
+                  </h3>
+                  <div className="flex gap-3 md:gap-4 flex-wrap">
+                    {[
+                      { icon: FaGithub, href: "https://github.com", label: "GitHub", tooltip: "Check out my code" },
+                      { icon: FaLinkedin, href: "https://linkedin.com", label: "LinkedIn", tooltip: "Professional network" },
+                      { icon: FaTwitter, href: "https://twitter.com", label: "Twitter", tooltip: "Follow me on Twitter" },
+                      { icon: FaTelegram, href: "https://t.me", label: "Telegram", tooltip: "Message me on Telegram" },
+                      { icon: FaInstagram, href: "https://instagram.com", label: "Instagram", tooltip: "See my photos" }
+                    ].map((social, index) => {
+                      const Icon = social.icon;
+                      return (
+                        <motion.a
+                          key={index}
+                          href={social.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="p-2 md:p-3 bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-lg text-gray-300 hover:text-green-400 hover:border-green-500/50 transition-all duration-300"
+                          aria-label={social.label}
+                        >
+                          <Icon className="text-lg md:text-xl" />
+                        </motion.a>
+                      );
+                    })}
+                  </div>
+                </motion.div>
+              </div>
+            </motion.div>
+
+            {/* Contact Form Placeholder */}
+            <motion.div variants={itemVariants}>
+              <div className="bg-gray-800/30 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-6 md:p-8">
+                <h3 className="text-xl md:text-2xl font-medium text-white mb-6">
+                  <span className="bg-gradient-to-r from-white to-gray-300 text-transparent bg-clip-text">
+                    Send me a message
+                  </span>
+                </h3>
+                <div className="flex items-center justify-center py-8">
+                  <div className="text-gray-400">Loading contact form...</div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </motion.section>
+    );
+  }
 
   return (
     <motion.section 
