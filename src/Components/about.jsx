@@ -148,7 +148,7 @@ const AboutMe = () => {
           {/* About Content */}
           <motion.div variants={itemVariants}>
             <h3 className="text-2xl md:text-3xl font-medium text-white mb-4 md:mb-6">
-              <span className="bg-gradient-to-r from-white to-gray-300 text-transparent bg-clip-text">
+              <span className="bg-gradient-to-r from-green-400 to-emerald-500 text-transparent bg-clip-text">
                 Who am I?
               </span>
             </h3>
@@ -159,7 +159,7 @@ const AboutMe = () => {
             </p>
             
             <h3 className="text-2xl md:text-3xl font-medium text-white mb-4 md:mb-6">
-              <span className="bg-gradient-to-r from-white to-gray-300 text-transparent bg-clip-text">
+              <span className="bg-gradient-to-r from-green-400 to-emerald-500 text-transparent bg-clip-text">
                 My Approach
               </span>
             </h3>
@@ -170,7 +170,7 @@ const AboutMe = () => {
             </p>
             
             <h3 className="text-2xl md:text-3xl font-medium text-white mb-4 md:mb-6">
-              <span className="bg-gradient-to-r from-white to-gray-300 text-transparent bg-clip-text">
+              <span className="bg-gradient-to-r from-green-400 to-emerald-500 text-transparent bg-clip-text">
                 Let's Connect
               </span>
             </h3>

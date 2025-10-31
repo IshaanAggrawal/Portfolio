@@ -149,7 +149,7 @@ export default function Contact() {
                           Phone
                         </span>
                       </h3>
-                      <p className="text-gray-400 text-sm md:text-base font-normal">+1 (123) 456-7890</p>
+                      <p className="text-gray-400 text-sm md:text-base font-normal">+91 9258895224</p>
                     </div>
                   </motion.div>
 
@@ -166,7 +166,7 @@ export default function Contact() {
                           Location
                         </span>
                       </h3>
-                      <p className="text-gray-400 text-sm md:text-base font-normal">San Francisco, CA</p>
+                      <p className="text-gray-400 text-sm md:text-base font-normal">Shamli, Uttar Pradesh, India</p>
                     </div>
                   </motion.div>
                 </div>
@@ -291,7 +291,7 @@ export default function Contact() {
                         Phone
                       </span>
                     </h3>
-                    <p className="text-gray-400 text-sm md:text-base font-normal">+1 (123) 456-7890</p>
+                    <p className="text-gray-400 text-sm md:text-base font-normal">+91 9258895224</p>
                   </div>
                 </motion.div>
 
@@ -309,7 +309,7 @@ export default function Contact() {
                         Location
                       </span>
                     </h3>
-                    <p className="text-gray-400 text-sm md:text-base font-normal">San Francisco, CA</p>
+                    <p className="text-gray-400 text-sm md:text-base font-normal">Shamli, Uttar Pradesh, India</p>
                   </div>
                 </motion.div>
               </div>

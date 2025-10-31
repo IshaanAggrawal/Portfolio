@@ -56,17 +56,10 @@ function Navbar() {
           {/* Mobile Menu Header */}
           <div className="flex items-center justify-between p-6 border-b border-gray-700/50">
             <h2 className="text-xl font-medium text-white">Menu</h2>
-            <button 
-              onClick={toggleMenu}
-              className="text-gray-300 hover:text-white focus:outline-none"
-              aria-label="Close menu"
-            >
-              <FiX size={24} />
-            </button>
           </div>
           
           {/* Mobile Menu Items */}
-          <div className="flex flex-col py-8 px-6 flex-grow">
+          <div className="flex flex-col py-8 px-6 flex-grow bg-gray-900">
             <ul className="space-y-6">
               {menuItems.map((item) => (
                 <li key={item}>
@@ -82,9 +75,8 @@ function Navbar() {
             </ul>
           </div>
           
-          {/* Mobile Menu Footer */}
-          <div className="p-6 border-t border-gray-700/50">
-            <p className="text-gray-400 text-sm font-normal">© {new Date().getFullYear()} Portfolio. All rights reserved.</p>
+          <div className="p-6 border-t border-gray-700/50 bg-gray-900">
+            <p className="text-gray-400 text-sm font-normal text-green-400">© {new Date().getFullYear()} Portfolio. All rights reserved.</p>
           </div>
         </div>
       </div>
