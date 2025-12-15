@@ -94,7 +94,7 @@ const SkillCard = ({ skill, index, isHovered, setIsHovered }) => {
 
 const Skills = () => {
     const [hoveredSkill, setHoveredSkill] = useState(null);
-    const [activeCategory, setActiveCategory] = useState("Gen AI / LLMs");
+    const [activeCategory, setActiveCategory] = useState("All");
     const [isClient, setIsClient] = useState(false); 
     const carouselRef = useRef(null);
     
