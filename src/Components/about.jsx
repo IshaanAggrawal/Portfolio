@@ -155,7 +155,8 @@ const AboutMe = () => {
             <p className="text-gray-300 mb-4 md:mb-6 text-base md:text-lg leading-relaxed font-normal">
               I'm a passionate full-stack developer with expertise in creating modern web applications. 
               With a strong foundation in both frontend and backend technologies, I bring ideas to life 
-              through clean, efficient code and intuitive user interfaces.
+              through clean, efficient code and intuitive user interfaces and have knowledge of modern 
+              GEN AI technology and have experience in building intelligent applications.
             </p>
             
             <h3 className="text-2xl md:text-3xl font-medium text-white mb-4 md:mb-6">
@@ -179,21 +180,6 @@ const AboutMe = () => {
               Whether you have a project in mind or just want to chat about technology, feel free to 
               reach out!
             </p>
-            
-            <div className="mt-6 md:mt-8 flex flex-wrap gap-3 md:gap-4">
-              <div className="px-3 py-2 md:px-4 md:py-2 bg-gray-800/50 backdrop-blur-sm rounded-lg border border-gray-700">
-                <span className="text-green-400 font-medium text-sm md:text-base">5+</span>
-                <span className="text-gray-300 ml-2 text-sm md:text-base font-normal">Years Experience</span>
-              </div>
-              <div className="px-3 py-2 md:px-4 md:py-2 bg-gray-800/50 backdrop-blur-sm rounded-lg border border-gray-700">
-                <span className="text-green-400 font-medium text-sm md:text-base">50+</span>
-                <span className="text-gray-300 ml-2 text-sm md:text-base font-normal">Projects</span>
-              </div>
-              <div className="px-3 py-2 md:px-4 md:py-2 bg-gray-800/50 backdrop-blur-sm rounded-lg border border-gray-700">
-                <span className="text-green-400 font-medium text-sm md:text-base">20+</span>
-                <span className="text-gray-300 ml-2 text-sm md:text-base font-normal">Happy Clients</span>
-              </div>
-            </div>
           </motion.div>
         </div>
       </div>

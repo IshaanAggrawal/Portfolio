@@ -50,14 +50,6 @@ export default function Home() {
         variants={sectionVariants}
         viewport={{ once: true, margin: "-100px" }}
       >
-        <CompetitiveProgramming />
-      </motion.div>
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        variants={sectionVariants}
-        viewport={{ once: true, margin: "-100px" }}
-      >
         <Services />
       </motion.div>
       <motion.div

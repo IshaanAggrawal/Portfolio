@@ -1,26 +1,68 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
+import useScrollPosition from "@/lib/hooks/useScrollPosition";
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+  const scrollPosition = useScrollPosition();
+  const navbarRef = useRef(null);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  // Calculate navbar width based on scroll position and hover state
+  const getNavbarClasses = () => {
+    const scrollThreshold = 100;
+    
+    // Base classes for glassy effect
+    let classes = "flex items-center justify-between px-6 py-4 font-sans fixed z-50 backdrop-blur-md bg-black/20 border-b border-white/10 rounded-2xl mx-auto transition-all duration-300 ";
+    
+    // Width classes based on scroll position and hover state
+    if (scrollPosition < scrollThreshold) {
+      // Full width at top
+      if (isHovered) {
+        classes += "w-full md:w-[98%] lg:w-[95%] ";
+      } else {
+        classes += "w-full md:w-[95%] lg:w-[90%] ";
+      }
+    } else {
+      // Collapsed width when scrolled
+      if (isHovered) {
+        classes += "w-[95%] md:w-[90%] lg:w-[85%] ";
+      } else {
+        classes += "w-[90%] md:w-[85%] lg:w-[80%] ";
+      }
+    }
+    
+    return classes;
+  };
+
   const menuItems = ["About", "Services", "Projects", "Contact"];
 
   return (
-    <nav className="flex items-center justify-between px-6 md:px-14 py-4 font-sans shadow-sm bg-transparent fixed w-full z-50 backdrop-blur-sm">
+    <nav 
+      ref={navbarRef}
+      className={getNavbarClasses()}
+      style={{ 
+        top: "20px",
+        left: "50%",
+        transform: "translateX(-50%)",
+        boxShadow: "0 10px 30px -15px rgba(0, 0, 0, 0.3)"
+      }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
       {/* Logo with gradient */}
-      <h1 className="text-2xl md:text-3xl font-bold font-mono tracking-wide bg-gradient-to-r from-green-400 via-emerald-500 to-teal-600 text-transparent bg-clip-text">
+      <h1 className="text-2xl md:text-3xl font-bold font-mono tracking-wide bg-gradient-to-r from-green-500 to-green-400 text-transparent bg-clip-text">
         PortFolio
       </h1>
 
       {/* Desktop Menu */}
-      <ul className="hidden md:flex items-center gap-8 lg:gap-10 list-none text-lg font-medium">
+      <ul className="hidden md:flex items-center gap-8 lg:gap-12 list-none text-lg font-medium ml-auto">
         {menuItems.map((item) => (
           <li
             key={item}

@@ -3,138 +3,152 @@
 import React from 'react'
 import { motion } from "framer-motion";
 import { 
-  SiReact, 
-  SiNextdotjs, 
-  SiTailwindcss, 
-  SiNodedotjs, 
-  SiMongodb, 
-  SiPython, 
-  SiFigma, 
-  SiDocker 
+ SiReact, 
+ SiNextdotjs, 
+ SiTailwindcss, 
+ SiNodedotjs, 
+ SiMongodb, 
+ SiPython, 
+ SiDocker,
+ // ADDED ICONS FOR GENAI/MLOPS FOCUS
+ SiGoogle, 
+ SiGit,
+ SiFastapi, // Added FastAPI icon
+ SiPostgresql // Added PostgreSQL icon
 } from "react-icons/si";
 
 const services = [
-  {
-    icon: SiReact,
-    title: "Frontend Development",
-    description: "Building responsive and interactive user interfaces with React, Next.js, and modern CSS frameworks.",
-    technologies: ["React", "Next.js", "Tailwind CSS", "Framer Motion"]
-  },
-  {
-    icon: SiNodedotjs,
-    title: "Backend Development",
-    description: "Creating robust server-side applications with Node.js, Express, and database integration.",
-    technologies: ["Node.js", "Express", "MongoDB", "REST APIs"]
-  },
-  {
-    icon: SiPython,
-    title: "AI & Machine Learning",
-    description: "Developing intelligent solutions with Python, TensorFlow, and machine learning algorithms.",
-    technologies: ["Python", "TensorFlow", "Scikit-learn", "OpenCV"]
-  },
-  {
-    icon: SiFigma,
-    title: "UI/UX Design",
-    description: "Designing beautiful and intuitive user experiences with modern design tools and principles.",
-    technologies: ["Figma", "Adobe XD", "Prototyping", "User Research"]
-  },
-  {
-    icon: SiDocker,
-    title: "DevOps & Deployment",
-    description: "Streamlining development workflows with containerization, CI/CD, and cloud deployment.",
-    technologies: ["Docker", "CI/CD", "AWS", "Vercel"]
-  },
-  {
-    icon: SiMongodb,
-    title: "Database Design",
-    description: "Architecting efficient database solutions for both SQL and NoSQL requirements.",
-    technologies: ["MongoDB", "PostgreSQL", "Redis", "Prisma"]
-  }
+ // 1. CORE EXPERTISE: Generative AI & LLMs (Top Priority) [cite: 5, 17]
+ {
+  icon: SiGoogle, // Using SiGoogle for Gemini/GenAI
+  title: "GenAI & LLM Architecture",
+  description: "Building production-grade GenAI systems, RAG pipelines, and LLM evaluation microservices with strong safety guardrails.",
+  technologies: ["RAG Architecture", "LangChain", "FastAPI", "pgvector", "LLM Evaluation"] // [cite: 5, 17, 23]
+ },
+ // 2. CORE EXPERTISE: Full Stack Development (Next.js/React) [cite: 19]
+ {
+  icon: SiNextdotjs,
+  title: "Frontend Engineering (Next.js)",
+  description: "Building responsive and interactive user interfaces with Next.js, React, and modern CSS frameworks.",
+  technologies: ["Next.js", "React.js", "TypeScript", "Tailwind CSS", "Framer Motion"] // [cite: 19]
+ },
+ // 3. CORE EXPERTISE: Backend & APIs (Python/Node.js) [cite: 18]
+ {
+  icon: SiFastapi, // Using SiFastapi for Python backend focus
+  title: "Backend API Development",
+  description: "Creating robust, low-latency APIs and inference endpoints using FastAPI, Flask, and Node.js/Express.",
+  technologies: ["FastAPI", "Flask", "Node.js", "Express", "REST APIs"] // [cite: 18]
+ },
+ // 4. CORE EXPERTISE: Data Science & ML [cite: 20]
+ {
+  icon: SiPython,
+  title: "Predictive Analytics & ML",
+  description: "Developing end-to-end ML pipelines and predictive models (XGBoost) for real-time inference requests.",
+  technologies: ["Python", "XGBoost", "Scikit-learn", "Pandas", "Model Deployment"] // [cite: 20, 35, 36]
+ },
+ // 5. CORE EXPERTISE: DevOps & Deployment [cite: 18, 38]
+ {
+  icon: SiDocker,
+  title: "DevOps & Deployment",
+  description: "Streamlining development workflows with containerization (Docker) and deploying scalable systems (Render, Vercel).",
+  technologies: ["CI/CD", "Vercel", "Render", "Scalable Systems"] // [cite: 18, 38]
+ },
+ // 6. CORE EXPERTISE: Database Solutions [cite: 20]
+ {
+  icon: SiPostgresql, // Using SiPostgresql for database focus
+  title: "Database & Data Modeling",
+  description: "Architecting efficient solutions for PostgreSQL/Supabase (pgvector) and MongoDB requirements.",
+  technologies: ["PostgreSQL", "Supabase", "MongoDB", "pgvector", "SQL"] // [cite: 20, 28]
+ }
 ];
 
 function Services() {
-  // Animation variants
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  };
+ // Animation variants
+ const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+   opacity: 1,
+   transition: {
+    staggerChildren: 0.1
+   }
+  }
+ };
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
-  };
+ const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+ };
 
-  return (
-    <motion.section 
-      id="services" 
-      className="py-16 px-4 md:px-6 bg-black"
-      initial="hidden"
-      whileInView="visible"
-      variants={containerVariants}
-      viewport={{ once: true, margin: "-100px" }}
-    >
-      <div className="max-w-6xl mx-auto">
-        {/* Heading */}
+ return (
+  <motion.section 
+   id="services" 
+   className="py-20 px-4 md:px-6 bg-black" // Increased padding
+   initial="hidden"
+   whileInView="visible"
+   variants={containerVariants}
+   viewport={{ once: true, margin: "-100px" }}
+  >
+   <div className="max-w-6xl mx-auto">
+    {/* Heading */}
         <motion.h2 
-          className="text-3xl md:text-4xl font-semibold mb-4 text-center"
+          className="text-4xl md:text-5xl font-bold mb-4 text-center"
           variants={itemVariants}
         >
           <span className="bg-gradient-to-r from-white to-gray-400 text-transparent bg-clip-text">
-            My Services
+            Core Expertise
           </span>
         </motion.h2>
-        <motion.p 
-          className="text-gray-400 mb-8 md:mb-12 max-w-2xl mx-auto text-center font-normal"
-          variants={itemVariants}
-        >
-          Here are the areas I specialize in. I love solving problems and delivering impactful solutions.
-        </motion.p>
+    <motion.p 
+     className="text-gray-400 mb-12 max-w-2xl mx-auto text-center font-normal text-lg"
+     variants={itemVariants}
+    >
+     Innovative Full Stack and Generative AI solutions for production-grade applications.
+    </motion.p>
 
-        {/* Services Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {services.map((service, index) => {
-            const IconComponent = service.icon;
-            return (
-              <motion.div
-                key={index}
-                className="bg-gray-800/30 backdrop-blur-sm border border-gray-700 rounded-xl p-4 md:p-6 hover:border-green-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-green-500/10"
-                variants={itemVariants}
-                whileHover={{ y: -10 }}
-                transition={{ duration: 0.3 }}
-              >
-                <div className="flex items-center gap-3 md:gap-4 mb-4">
-                  <div className="p-2 md:p-3 bg-green-500/10 rounded-lg">
-                    <IconComponent className="text-xl md:text-2xl text-green-400" />
-                  </div>
-                  <h3 className="text-lg md:text-xl font-medium text-white">
-                    <span className="bg-gradient-to-r from-white to-gray-300 text-transparent bg-clip-text">
-                      {service.title}
-                    </span>
-                  </h3>
-                </div>
-                <p className="text-gray-300 mb-4 text-sm md:text-base font-normal">{service.description}</p>
-                <div className="flex flex-wrap gap-1 md:gap-2">
-                  {service.technologies.map((tech, techIndex) => (
-                    <span 
-                      key={techIndex} 
-                      className="px-2 py-1 md:px-3 md:py-1 bg-gray-700/50 text-gray-300 text-xs md:text-sm rounded-full font-normal"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </motion.div>
-            );
-          })}
+    {/* Services Grid */}
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+     {services.map((service, index) => {
+      const IconComponent = service.icon;
+      return (
+       <motion.div
+        key={index}
+        // CORRECTION: Cleaned up card styles for dark theme contrast and strong green hover
+        className="bg-gray-800/20 backdrop-blur-sm border border-gray-700 rounded-xl p-8 hover:border-green-500 transition-all duration-300 hover:shadow-2xl hover:shadow-green-500/15"
+        variants={itemVariants}
+        whileHover={{ y: -5 }}
+        transition={{ duration: 0.3 }}
+       >
+        <div className="flex items-center gap-4 mb-4">
+         {/* CORRECTION: Icon block uses clean green accent */}
+         <div className="p-3 bg-green-500/15 rounded-xl">
+          <IconComponent className="text-2xl text-green-400" />
+         </div>
+         <h3 className="text-xl font-semibold text-white">
+          {/* CORRECTION: Title text clip uses White/Gray for better contrast against the card */}
+          <span className="bg-gradient-to-r from-white to-gray-300 text-transparent bg-clip-text">
+           {service.title}
+          </span>
+         </h3>
         </div>
-      </div>
-    </motion.section>
-  )
+        <p className="text-gray-300 mb-4 text-base font-light leading-relaxed">{service.description}</p>
+        <div className="flex flex-wrap gap-2">
+         {service.technologies.map((tech, techIndex) => (
+          <span 
+           key={techIndex} 
+           // CORRECTION: Technology chips use gray background with neon green text
+           className="px-3 py-1 bg-gray-700/70 text-green-400 text-xs rounded-full font-medium"
+          >
+           {tech}
+          </span>
+         ))}
+        </div>
+       </motion.div>
+      );
+     })}
+    </div>
+   </div>
+  </motion.section>
+ )
 }
 
 export default Services
