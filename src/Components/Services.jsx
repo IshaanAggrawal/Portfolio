@@ -94,7 +94,7 @@ function Services() {
           className="text-4xl md:text-5xl font-bold mb-4 text-center"
           variants={itemVariants}
         >
-          <span className="bg-gradient-to-r from-white to-gray-400 text-transparent bg-clip-text">
+          <span className="bg-gradient-to-r from-amber-300 to-yellow-500 text-transparent bg-clip-text">
             Core Expertise
           </span>
         </motion.h2>
@@ -113,15 +113,15 @@ function Services() {
        <motion.div
         key={index}
         // CORRECTION: Cleaned up card styles for dark theme contrast and strong green hover
-        className="bg-gray-800/20 backdrop-blur-sm border border-gray-700 rounded-xl p-8 hover:border-green-500 transition-all duration-300 hover:shadow-2xl hover:shadow-green-500/15"
+        className="bg-gray-800/20 backdrop-blur-sm border border-gray-700 rounded-xl p-8 hover:border-amber-500 transition-all duration-300 hover:shadow-2xl hover:shadow-amber-500/15"
         variants={itemVariants}
         whileHover={{ y: -5 }}
         transition={{ duration: 0.3 }}
        >
         <div className="flex items-center gap-4 mb-4">
          {/* CORRECTION: Icon block uses clean green accent */}
-         <div className="p-3 bg-green-500/15 rounded-xl">
-          <IconComponent className="text-2xl text-green-400" />
+         <div className="p-3 bg-amber-500/15 rounded-xl">
+          <IconComponent className="text-2xl text-amber-400" />
          </div>
          <h3 className="text-xl font-semibold text-white">
           {/* CORRECTION: Title text clip uses White/Gray for better contrast against the card */}
@@ -136,7 +136,7 @@ function Services() {
           <span 
            key={techIndex} 
            // CORRECTION: Technology chips use gray background with neon green text
-           className="px-3 py-1 bg-gray-700/70 text-green-400 text-xs rounded-full font-medium"
+           className="px-3 py-1 bg-gray-700/70 text-amber-400 text-xs rounded-full font-medium"
           >
            {tech}
           </span>

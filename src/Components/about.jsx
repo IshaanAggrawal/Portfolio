@@ -132,7 +132,7 @@ const AboutMe = () => {
           className="text-3xl md:text-4xl lg:text-5xl font-semibold text-center mb-8 md:mb-12 text-white"
           variants={itemVariants}
         >
-          <span className="bg-gradient-to-r from-white to-gray-400 text-transparent bg-clip-text">
+          <span className="bg-gradient-to-r from-amber-300 to-yellow-500 text-transparent bg-clip-text">
             About Me
           </span>
         </motion.h2>
@@ -148,7 +148,7 @@ const AboutMe = () => {
           {/* About Content */}
           <motion.div variants={itemVariants}>
             <h3 className="text-2xl md:text-3xl font-medium text-white mb-4 md:mb-6">
-              <span className="bg-gradient-to-r from-green-400 to-emerald-500 text-transparent bg-clip-text">
+              <span className="bg-gradient-to-r from-amber-400 to-yellow-500 text-transparent bg-clip-text">
                 Who am I?
               </span>
             </h3>
@@ -160,7 +160,7 @@ const AboutMe = () => {
             </p>
             
             <h3 className="text-2xl md:text-3xl font-medium text-white mb-4 md:mb-6">
-              <span className="bg-gradient-to-r from-green-400 to-emerald-500 text-transparent bg-clip-text">
+              <span className="bg-gradient-to-r from-amber-400 to-yellow-500 text-transparent bg-clip-text">
                 My Approach
               </span>
             </h3>
@@ -171,7 +171,7 @@ const AboutMe = () => {
             </p>
             
             <h3 className="text-2xl md:text-3xl font-medium text-white mb-4 md:mb-6">
-              <span className="bg-gradient-to-r from-green-400 to-emerald-500 text-transparent bg-clip-text">
+              <span className="bg-gradient-to-r from-amber-400 to-yellow-500 text-transparent bg-clip-text">
                 Let's Connect
               </span>
             </h3>

@@ -8,14 +8,31 @@ import Projects from "@/Components/Project";
 import Services from "@/Components/Services";
 import Skills from "@/Components/Skills";
 import CompetitiveProgramming from "@/Components/CompetitiveProgramming";
+import GoldenLoader from "@/Components/GoldenLoader";
 import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 
 export default function Home() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate loading time or check for actual loading conditions
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   // Animation variants
   const sectionVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
   };
+
+  if (loading) {
+    return <GoldenLoader />;
+  }
 
   return (
     <>

@@ -29,10 +29,10 @@
      <div className="absolute inset-0 z-0">
       <LightRays
         raysOrigin="top-center"
-        raysColor="#26f218"
+        raysColor="#ffc300"
         raysSpeed={1.5}
         lightSpread={0.8}
-        rayLength={20}
+        rayLength={30}
         followMouse={true}
         mouseInfluence={0.1}
         noiseAmount={0.1}
@@ -58,7 +58,7 @@
         <span className="text-white font-extrabold">Hi,I am </span>
         <RotatingText
          texts={["Ishaan Aggrawal","Gen AI Engineer","Web Developer","Data Scientist"]}
-         mainClassName="px-2 sm:px-2 md:px-3 bg-green-500 text-white font-bold overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center rounded-lg inline-flex"
+         mainClassName="px-2 sm:px-2 md:px-3 bg-amber-500 text-white font-bold overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center rounded-lg inline-flex"
          staggerFrom={"first"}
          initial={{ y: "100%" }}
          animate={{ y: 0 }}
@@ -86,14 +86,14 @@
         <a
          href="./Ishaanaggrawalgenai.pdf" 
          download="Ishaan_Aggrawal_Resume.pdf"
-         className="px-6 py-3 rounded-lg bg-gradient-to-r from-green-500 to-emerald-600 text-white font-medium shadow-lg hover:shadow-[0_0_20px_rgba(16,185,129,0.7)] transition-all transform hover:scale-105"
+         className="px-6 py-3 rounded-lg bg-gradient-to-r from-amber-500 to-yellow-600 text-white font-medium shadow-lg hover:shadow-[0_0_20px_rgba(255,195,0,0.7)] transition-all transform hover:scale-105"
          style={{ fontFamily: "'Space Grotesk', sans-serif" }}
         >
          Download My Resume
         </a>
         <a
          href="#contact"
-         className="px-6 py-3 rounded-lg border border-green-400 text-green-300 font-medium hover:bg-green-400/10 transition-all transform hover:scale-105"
+         className="px-6 py-3 rounded-lg border border-amber-400 text-amber-300 font-medium hover:bg-amber-400/10 transition-all transform hover:scale-105"
          style={{ fontFamily: "'Space Grotesk', sans-serif" }}
         >
          Let's Connect
@@ -103,14 +103,14 @@
      </div>
      
      {/* Curved Loop Text Animation */}
-     <div className="mb-20">
-      <CurvedLoop 
+    <div className="mb-10 mt-10 sm:mt-0">
+     <CurvedLoop
         marqueeText="Welcome to Ishaan's Portfolio ✦ Welcome to Ishaan's Portfolio✦"
         speed={2}
         curveAmount={300}
         direction="left"
         interactive={true}
-        className="text-green-400 text-4xl md:text-5xl"
+        className="text-amber-400 text-4xl md:text-5xl"
       />
      </div>
     </div>

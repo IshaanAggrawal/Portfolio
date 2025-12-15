@@ -35,7 +35,7 @@ const skillData = {
 const skillCategories = {
     "Gen AI / LLMs": {
         skills: ["RAG Architecture", "LangChain", "Gemini API", "pgvector", "XGBoost", "Scikit-learn"],
-        color: "from-green-500/80 to-green-600/80" 
+        ccolor: "from-amber-500/80 to-yellow-600/80"
     },
     "Full Stack Development": {
         skills: ["Next.js", "React.js", "TypeScript", "FastAPI", "Flask", "Node.js", "Express.js", "Tailwind CSS"],
@@ -59,7 +59,7 @@ const SkillCard = ({ skill, index, isHovered, setIsHovered }) => {
     const springProps = useSpring({
         scale: isHovered === `${skill}-${index}` ? 1.15 : 1,
         y: isHovered === `${skill}-${index}` ? -8 : 0, 
-        boxShadow: isHovered === `${skill}-${index}` ? `0 0 15px 3px #26f21870` : '0 0 5px 0px #00000000',
+        boxShadow: isHovered === `${skill}-${index}` ? `0 0 15px 3px #ffc30070` : '0 0 5px 0px #00000000',
         config: { tension: 300, friction: 20 }
     });
     
@@ -77,14 +77,14 @@ const SkillCard = ({ skill, index, isHovered, setIsHovered }) => {
             
             {isHovered === `${skill}-${index}` && data.description && (
                 <motion.div 
-                    className="absolute bottom-full left-1/2 transform -translate-x-1/2 -translate-y-2 bg-gray-900 text-white text-xs md:text-sm rounded-lg px-3 py-2 whitespace-nowrap border border-green-500/50 shadow-xl"
+                    className="absolute bottom-full left-1/2 transform -translate-x-1/2 -translate-y-2 bg-gray-900 text-white text-xs md:text-sm rounded-lg px-3 py-2 whitespace-nowrap border border-amber-500/50 shadow-xl"
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
                     transition={{ duration: 0.2 }}
                     style={{ zIndex: 50, pointerEvents: 'none' }}
                 >
-                    <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1 w-3 h-3 bg-gray-900 border-r border-b border-green-500/50 rotate-45"></div>
+                    <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1 w-3 h-3 bg-gray-900 border-r border-b border-amber-500/50 rotate-45"></div>
                     {data.description}
                 </motion.div>
             )}
@@ -159,7 +159,7 @@ const Skills = () => {
                     className="text-4xl md:text-5xl font-bold mb-4 text-center"
                     variants={itemVariants}
                 >
-                    <span className="bg-gradient-to-r from-white to-gray-400 text-transparent bg-clip-text">
+                    <span className="bg-gradient-to-r from-amber-300 to-yellow-500 text-transparent bg-clip-text">
                         My Tech Stack
                     </span>
                 </motion.h2>
@@ -178,7 +178,7 @@ const Skills = () => {
                     <button
                         className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
                             activeCategory === "All"
-                                ? "bg-green-500 text-black shadow-lg shadow-green-500/30"
+                                ? "bg-amber-500 text-black shadow-lg shadow-amber-500/30"
                                 : "bg-gray-800 text-gray-300 hover:bg-gray-700"
                         }`}
                         onClick={() => setActiveCategory("All")}
@@ -191,7 +191,7 @@ const Skills = () => {
                             key={category}
                             className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
                                 activeCategory === category
-                                    ? "bg-green-500 text-black shadow-lg shadow-green-500/30"
+                                    ? "bg-amber-500 text-black shadow-lg shadow-amber-500/30"
                                     : "bg-gray-800 text-gray-300 hover:bg-gray-700"
                             }`}
                             onClick={() => setActiveCategory(category)}
@@ -205,7 +205,7 @@ const Skills = () => {
                 {activeCategory !== "All" ? (
                     <motion.div 
                         key={activeCategory}
-                        className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2 mt-8"
+                        className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 mt-8"
                         initial="hidden"
                         animate="visible"
                         variants={containerVariants}

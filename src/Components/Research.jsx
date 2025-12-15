@@ -30,7 +30,7 @@ export default function Research() {
       viewport={{ once: true, margin: "-100px" }}
     >
       <motion.h2 
-        className="font-serif text-5xl font-extrabold mb-12 bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 bg-clip-text text-transparent text-center"
+        className="font-serif text-5xl font-extrabold mb-12 bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-500 bg-clip-text text-transparent text-center"
         variants={itemVariants}
       >
         Research & Problem Solving
@@ -43,7 +43,7 @@ export default function Research() {
             <CardHeader>
               <CardTitle className="flex items-center gap-2 text-2xl">
                 <Lightbulb className="w-7 h-7 text-yellow-400" />
-                <span className="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-amber-400 to-yellow-500 bg-clip-text text-transparent">
                   Identified Problem
                 </span>
               </CardTitle>
@@ -114,11 +114,11 @@ In times of rising data breaches, we urgently need a secure, transparent, tamper
           </Card>
         </motion.div>
         <motion.div variants={itemVariants}>
-          <Card className="rounded-2xl shadow-2xl border border-green-500/30 bg-gradient-to-br from-zinc-900 to-black hover:from-green-900 hover:to-black transition-all duration-500 hover:scale-[1.02] hover:shadow-green-500/40">
+          <Card className="rounded-2xl shadow-2xl border border-amber-500/30 bg-gradient-to-br from-zinc-900 to-black hover:from-amber-900 hover:to-black transition-all duration-500 hover:scale-[1.02] hover:shadow-amber-500/40">
             <CardHeader>
               <CardTitle className="flex items-center gap-2 text-2xl">
-                <CheckCircle className="w-7 h-7 text-green-400" />
-                <span className="bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent">
+                <CheckCircle className="w-7 h-7 text-amber-400" />
+                <span className="bg-gradient-to-r from-amber-400 to-yellow-500 bg-clip-text text-transparent">
                   Proposed Solution
                 </span>
               </CardTitle>

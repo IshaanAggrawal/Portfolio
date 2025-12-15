@@ -19,7 +19,7 @@ function Navbar() {
     const scrollThreshold = 100;
     
     // Base classes for glassy effect
-    let classes = "flex items-center justify-between px-6 py-4 font-sans fixed z-50 backdrop-blur-md bg-black/20 border-b border-white/10 rounded-2xl mx-auto transition-all duration-300 ";
+    let classes = "flex items-center justify-between px-6 py-4 font-sans fixed z-50 backdrop-blur-md bg-black/20 border-b border-white/10 rounded-4xl mx-auto transition-all duration-300 ";
     
     // Width classes based on scroll position and hover state
     if (scrollPosition < scrollThreshold) {
@@ -57,7 +57,7 @@ function Navbar() {
       onMouseLeave={() => setIsHovered(false)}
     >
       {/* Logo with gradient */}
-      <h1 className="text-2xl md:text-3xl font-bold font-mono tracking-wide bg-gradient-to-r from-green-500 to-green-400 text-transparent bg-clip-text">
+      <h1 className="text-2xl md:text-3xl font-bold font-mono tracking-wide bg-gradient-to-r from-amber-500 to-yellow-400 text-transparent bg-clip-text">
         PortFolio
       </h1>
 
@@ -66,13 +66,13 @@ function Navbar() {
         {menuItems.map((item) => (
           <li
             key={item}
-            className="relative cursor-pointer group text-gray-300 hover:text-green-400 transition duration-300"
+            className="relative cursor-pointer group text-gray-300 hover:text-amber-400 transition duration-300"
           >
             {item}
             {/* Hover underline gradient */}
             <span
               className="absolute left-0 -bottom-1 w-0 h-[3px] 
-              bg-gradient-to-r from-green-400 via-emerald-500 to-teal-600 
+              bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600
               transition-all duration-300 group-hover:w-full rounded-full"
             ></span>
           </li>
@@ -90,7 +90,7 @@ function Navbar() {
 
       {/* Mobile Menu Panel from Right - Card Style */}
       <div 
-        className={`fixed top-0 right-0 h-full w-4/5 max-w-sm bg-gray-800/90 backdrop-blur-xl z-40 transform transition-transform duration-300 ease-in-out md:hidden rounded-l-2xl shadow-2xl ${
+        className={`fixed top-0 -right-4 h-full w-4/5 max-w-sm bg-gray-800/90 backdrop-blur-xl z-40 transform transition-transform duration-300 ease-in-out md:hidden rounded-l-2xl shadow-2xl ${
           isMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
@@ -107,7 +107,7 @@ function Navbar() {
                 <li key={item}>
                   <a
                     href={`#${item.toLowerCase()}`}
-                    className="block py-3 text-xl font-medium text-gray-200 hover:text-green-400 transition duration-300 border-b border-gray-700/30 hover:border-green-400/50"
+                    className="block py-3 text-xl font-medium text-gray-200 hover:text-amber-400 transition duration-300 border-b border-gray-700/30 hover:border-amber-400/50"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {item}
@@ -118,7 +118,7 @@ function Navbar() {
           </div>
           
           <div className="p-6 border-t border-gray-700/50 bg-gray-900">
-            <p className="text-gray-400 text-sm font-normal text-green-400">© {new Date().getFullYear()} Portfolio. All rights reserved.</p>
+            <p className="text-gray-400 text-sm font-normal text-amber-400">© {new Date().getFullYear()} Portfolio. All rights reserved.</p>
           </div>
         </div>
       </div>

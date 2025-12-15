@@ -119,7 +119,7 @@ function Projects() {
           className="text-4xl md:text-5xl font-bold mb-4 text-center"
           variants={itemVariants}
         >
-          <span className="bg-gradient-to-r from-white to-gray-400 text-transparent bg-clip-text">
+          <span className="bg-gradient-to-r from-amber-300 to-yellow-500 text-transparent bg-clip-text">
              My Projects
           </span>
         </motion.h2>
@@ -167,7 +167,7 @@ function Projects() {
             {projects.map((project) => (
               <SwiperSlide key={project.id} className="h-auto pb-10">
                 <motion.div 
-                  className="bg-gray-800/30 backdrop-blur-sm border border-gray-700 rounded-xl overflow-hidden hover:border-green-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-green-500/10 h-full flex flex-col"
+                  className="bg-gray-800/30 backdrop-blur-sm border border-gray-700 rounded-xl overflow-hidden hover:border-amber-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-amber-500/10 h-full flex flex-col"
                   whileHover={{ y: -10 }}
                   transition={{ duration: 0.3 }}
                 >
@@ -209,7 +209,7 @@ function Projects() {
                         href={project.liveDemo} 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="flex items-center gap-1 md:gap-2 px-3 py-2 text-xs md:px-4 md:py-2 md:text-sm bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white rounded-lg transition-all"
+                        className="flex items-center gap-1 md:gap-2 px-3 py-2 text-xs md:px-4 md:py-2 md:text-sm bg-gradient-to-r from-amber-600 to-yellow-600 hover:from-amber-700 hover:to-yellow-700 text-white rounded-lg transition-all"
                         data-tooltip-id={`demo-tooltip-${project.id}`}
                         data-tooltip-content="View live demo"
                       >

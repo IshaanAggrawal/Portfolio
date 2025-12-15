@@ -86,7 +86,7 @@ const CompetitiveProgramming = () => {
             return (
               <motion.div
                 key={index}
-                className="bg-gray-800/30 backdrop-blur-sm border border-gray-700 rounded-xl p-6 hover:border-green-500/50 transition-all duration-300"
+                className="bg-gray-800/30 backdrop-blur-sm border border-gray-700 rounded-xl p-6 hover:border-amber-500/50 transition-all duration-300"
                 variants={itemVariants}
                 whileHover={{ y: -10 }}
                 transition={{ duration: 0.3 }}

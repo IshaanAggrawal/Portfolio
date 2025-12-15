@@ -125,8 +125,8 @@ export default function Contact() {
                     className="flex items-start gap-3 md:gap-4 p-4 md:p-6 bg-gray-800/30 backdrop-blur-sm border border-gray-700/50 rounded-xl"
                     transition={{ duration: 0.3 }}
                   >
-                    <div className="p-2 md:p-3 bg-green-500/10 rounded-lg">
-                      <FiMail className="text-green-400 text-lg md:text-xl" />
+                    <div className="p-2 md:p-3 bg-amber-500/10 rounded-lg">
+                      <FiMail className="text-amber-400 text-lg md:text-xl" />
                     </div>
                     <div>
                       <h3 className="text-white font-medium text-base md:text-lg">
@@ -142,8 +142,8 @@ export default function Contact() {
                     className="flex items-start gap-3 md:gap-4 p-4 md:p-6 bg-gray-800/30 backdrop-blur-sm border border-gray-700/50 rounded-xl"
                     transition={{ duration: 0.3 }}
                   >
-                    <div className="p-2 md:p-3 bg-green-500/10 rounded-lg">
-                      <FiPhone className="text-green-400 text-lg md:text-xl" />
+                    <div className="p-2 md:p-3 bg-amber-500/10 rounded-lg">
+                      <FiPhone className="text-amber-400 text-lg md:text-xl" />
                     </div>
                     <div>
                       <h3 className="text-white font-medium text-base md:text-lg">
@@ -159,8 +159,8 @@ export default function Contact() {
                     className="flex items-start gap-3 md:gap-4 p-4 md:p-6 bg-gray-800/30 backdrop-blur-sm border border-gray-700/50 rounded-xl"
                     transition={{ duration: 0.3 }}
                   >
-                    <div className="p-2 md:p-3 bg-green-500/10 rounded-lg">
-                      <FiMapPin className="text-green-400 text-lg md:text-xl" />
+                    <div className="p-2 md:p-3 bg-amber-500/10 rounded-lg">
+                      <FiMapPin className="text-amber-400 text-lg md:text-xl" />
                     </div>
                     <div>
                       <h3 className="text-white font-medium text-base md:text-lg">
@@ -241,7 +241,7 @@ export default function Contact() {
           variants={itemVariants}
         >
           <motion.h2 
-            className="text-3xl md:text-4xl lg:text-5xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400 mb-4"
+            className="text-3xl md:text-4xl lg:text-5xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-yellow-500 mb-4"
             variants={itemVariants}
           >
             Let's Connect
@@ -266,8 +266,8 @@ export default function Contact() {
                   whileHover={{ y: -5 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <div className="p-2 md:p-3 bg-green-500/10 rounded-lg">
-                    <FiMail className="text-green-400 text-lg md:text-xl" />
+                  <div className="p-2 md:p-3 bg-amber-500/10 rounded-lg">
+                    <FiMail className="text-amber-400 text-lg md:text-xl" />
                   </div>
                   <div>
                     <h3 className="text-white font-medium text-base md:text-lg">
@@ -284,8 +284,8 @@ export default function Contact() {
                   whileHover={{ y: -5 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <div className="p-2 md:p-3 bg-green-500/10 rounded-lg">
-                    <FiPhone className="text-green-400 text-lg md:text-xl" />
+                  <div className="p-2 md:p-3 bg-amber-500/10 rounded-lg">
+                    <FiPhone className="text-amber-400 text-lg md:text-xl" />
                   </div>
                   <div>
                     <h3 className="text-white font-medium text-base md:text-lg">
@@ -302,8 +302,8 @@ export default function Contact() {
                   whileHover={{ y: -5 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <div className="p-2 md:p-3 bg-green-500/10 rounded-lg">
-                    <FiMapPin className="text-green-400 text-lg md:text-xl" />
+                  <div className="p-2 md:p-3 bg-amber-500/10 rounded-lg">
+                    <FiMapPin className="text-amber-400 text-lg md:text-xl" />
                   </div>
                   <div>
                     <h3 className="text-white font-medium text-base md:text-lg">
@@ -338,7 +338,7 @@ export default function Contact() {
                         href={social.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="p-2 md:p-3 bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-lg text-gray-300 hover:text-green-400 hover:border-green-500/50 transition-all duration-300"
+                        className="p-2 md:p-3 bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-lg text-gray-300 hover:text-amber-400 hover:border-amber-500/50 transition-all duration-300"
                         whileHover={{ y: -5, scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}
                         aria-label={social.label}
@@ -365,8 +365,8 @@ export default function Contact() {
               
               {submitStatus && submitStatus.type === 'success' ? (
                 <div className="flex flex-col items-center justify-center py-8">
-                  <div className="w-16 h-16 rounded-full bg-green-500/20 flex items-center justify-center mb-4">
-                    <FiCheck className="text-green-400 text-2xl" />
+                  <div className="w-16 h-16 rounded-full bg-amber-500/20 flex items-center justify-center mb-4">
+                    <FiCheck className="text-amber-400 text-2xl" />
                   </div>
                   <h4 className="text-xl font-medium text-white mb-2">Message Received!</h4>
                   <p className="text-gray-300 text-center">
@@ -411,7 +411,7 @@ export default function Contact() {
                       value={formData.message}
                       onChange={handleInputChange}
                       rows={4}
-                      className="w-full p-3 md:p-4 bg-gray-900/50 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all resize-none text-sm md:text-base font-normal"
+                      className="w-full p-3 md:p-4 bg-gray-900/50 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all resize-none text-sm md:text-base font-normal"
                       placeholder="Your message here..."
                       required
                     />
@@ -421,7 +421,7 @@ export default function Contact() {
                   {submitStatus && (
                     <div className={`p-3 rounded-lg text-sm ${
                       submitStatus.type === 'success' 
-                        ? 'bg-green-900/30 text-green-400 border border-green-800/50' 
+                        ? 'bg-amber-900/30 text-amber-400 border border-amber-800/50'
                         : 'bg-red-900/30 text-red-400 border border-red-800/50'
                     }`}>
                       {submitStatus.message}
@@ -431,7 +431,7 @@ export default function Contact() {
                   <motion.button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full py-3 md:py-4 px-4 md:px-6 bg-gradient-to-r from-green-500 to-emerald-600 text-white font-medium rounded-lg hover:from-green-600 hover:to-emerald-700 transition-all duration-300 shadow-lg hover:shadow-green-500/20 disabled:opacity-70"
+                    className="w-full py-3 md:py-4 px-4 md:px-6 bg-gradient-to-r from-amber-500 to-yellow-600 text-white font-medium rounded-lg hover:from-amber-600 hover:to-yellow-700 transition-all duration-300 shadow-lg hover:shadow-amber-500/20 disabled:opacity-70"
                     whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
                     whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
                   >
