@@ -1,22 +1,30 @@
 "use client";
 
-import AboutMe from "@/Components/about";
-import Contact from "@/Components/Contact";
-import HeroSection from "@/Components/HeroSection";
 import Navbar from "@/Components/Navbar";
-import Projects from "@/Components/Project";
-import Services from "@/Components/Services";
-import Skills from "@/Components/Skills";
-import CompetitiveProgramming from "@/Components/CompetitiveProgramming";
-import GoldenLoader from "@/Components/GoldenLoader";
+import HeroSection from "@/Components/HeroSection";
+import GoldenLoader from "@/Components/loaders/GoldenLoader";
+import SkeletonLoader from "@/Components/skeletons/SkeletonLoader";
+import SkillsSkeleton from "@/Components/skeletons/SkillsSkeleton";
+import ProjectsSkeleton from "@/Components/skeletons/ProjectsSkeleton";
+import ServicesSkeleton from "@/Components/skeletons/ServicesSkeleton";
+import ContactSkeleton from "@/Components/skeletons/ContactSkeleton";
+import AboutSkeleton from "@/Components/skeletons/AboutSkeleton";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
+import dynamic from "next/dynamic";
+import { Suspense } from "react";
+
+// Lazy load components to prevent initial loading lag
+const AboutMe = dynamic(() => import("@/Components/about"), { ssr: false });
+const Contact = dynamic(() => import("@/Components/Contact"), { ssr: false });
+const Projects = dynamic(() => import("@/Components/Project"), { ssr: false });
+const Services = dynamic(() => import("@/Components/Services"), { ssr: false });
+const Skills = dynamic(() => import("@/Components/Skills"), { ssr: false });
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate loading time or check for actual loading conditions
     const timer = setTimeout(() => {
       setLoading(false);
     }, 2000);
@@ -51,7 +59,9 @@ export default function Home() {
         variants={sectionVariants}
         viewport={{ once: true, margin: "-100px" }}
       >
-        <AboutMe />
+        <Suspense fallback={<AboutSkeleton />}>
+          <AboutMe />
+        </Suspense>
       </motion.div>
       <motion.div
         initial="hidden"
@@ -59,7 +69,9 @@ export default function Home() {
         variants={sectionVariants}
         viewport={{ once: true, margin: "-100px" }}
       >
-        <Skills />
+        <Suspense fallback={<SkillsSkeleton />}>
+          <Skills />
+        </Suspense>
       </motion.div>
       <motion.div
         initial="hidden"
@@ -67,7 +79,9 @@ export default function Home() {
         variants={sectionVariants}
         viewport={{ once: true, margin: "-100px" }}
       >
-        <Services />
+        <Suspense fallback={<ServicesSkeleton />}>
+          <Services />
+        </Suspense>
       </motion.div>
       <motion.div
         initial="hidden"
@@ -75,7 +89,9 @@ export default function Home() {
         variants={sectionVariants}
         viewport={{ once: true, margin: "-100px" }}
       >
-        <Projects />
+        <Suspense fallback={<ProjectsSkeleton />}>
+          <Projects />
+        </Suspense>
       </motion.div>
       <motion.div
         initial="hidden"
@@ -83,7 +99,9 @@ export default function Home() {
         variants={sectionVariants}
         viewport={{ once: true, margin: "-100px" }}
       >
-        <Contact />
+        <Suspense fallback={<ContactSkeleton />}>
+          <Contact />
+        </Suspense>
       </motion.div>
     </>
   );
