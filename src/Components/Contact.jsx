@@ -195,7 +195,7 @@ export default function Contact() {
                           href={social.href}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="p-2 md:p-3 bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-lg text-gray-300 hover:text-green-400 hover:border-green-500/50 transition-all duration-300"
+                          className="p-2 md:p-3 bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-lg text-gray-300 hover:text-amber-400 hover:border-amber-500/50 transition-all duration-300"
                           aria-label={social.label}
                         >
                           <Icon className="text-lg md:text-xl" />
@@ -262,7 +262,7 @@ export default function Contact() {
               {/* Contact Info Cards */}
               <div className="space-y-4 md:space-y-6">
                 <motion.div 
-                  className="flex items-start gap-3 md:gap-4 p-4 md:p-6 bg-gray-800/30 backdrop-blur-sm border border-gray-700/50 rounded-xl hover:border-green-500/50 transition-all duration-300"
+                  className="flex items-start gap-3 md:gap-4 p-4 md:p-6 bg-gray-800/30 backdrop-blur-sm border border-gray-700/50 rounded-xl hover:border-amber-500/50 transition-all duration-300"
                   whileHover={{ y: -5 }}
                   transition={{ duration: 0.3 }}
                 >
@@ -280,7 +280,7 @@ export default function Contact() {
                 </motion.div>
 
                 <motion.div 
-                  className="flex items-start gap-3 md:gap-4 p-4 md:p-6 bg-gray-800/30 backdrop-blur-sm border border-gray-700/50 rounded-xl hover:border-green-500/50 transition-all duration-300"
+                  className="flex items-start gap-3 md:gap-4 p-4 md:p-6 bg-gray-800/30 backdrop-blur-sm border border-gray-700/50 rounded-xl hover:border-amber-500/50 transition-all duration-300"
                   whileHover={{ y: -5 }}
                   transition={{ duration: 0.3 }}
                 >
@@ -298,7 +298,7 @@ export default function Contact() {
                 </motion.div>
 
                 <motion.div 
-                  className="flex items-start gap-3 md:gap-4 p-4 md:p-6 bg-gray-800/30 backdrop-blur-sm border border-gray-700/50 rounded-xl hover:border-green-500/50 transition-all duration-300"
+                  className="flex items-start gap-3 md:gap-4 p-4 md:p-6 bg-gray-800/30 backdrop-blur-sm border border-gray-700/50 rounded-xl hover:border-amber-500/50 transition-all duration-300"
                   whileHover={{ y: -5 }}
                   transition={{ duration: 0.3 }}
                 >
@@ -383,7 +383,7 @@ export default function Contact() {
                       name="name"
                       value={formData.name}
                       onChange={handleInputChange}
-                      className="w-full p-3 md:p-4 bg-gray-900/50 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all text-sm md:text-base font-normal"
+                      className="w-full p-3 md:p-4 bg-gray-900/50 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all text-sm md:text-base font-normal"
                       placeholder="Your name"
                       required
                     />
@@ -397,7 +397,7 @@ export default function Contact() {
                       name="email"
                       value={formData.email}
                       onChange={handleInputChange}
-                      className="w-full p-3 md:p-4 bg-gray-900/50 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all text-sm md:text-base font-normal"
+                      className="w-full p-3 md:p-4 bg-gray-900/50 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all text-sm md:text-base font-normal"
                       placeholder="your.email@example.com"
                       required
                     />
