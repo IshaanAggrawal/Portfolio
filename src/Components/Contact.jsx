@@ -98,12 +98,14 @@ export default function Contact() {
             className="text-center mb-12 md:mb-16"
             variants={itemVariants}
           >
-            <motion.h2 
-              className="text-3xl md:text-4xl lg:text-5xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400 mb-4"
-              variants={itemVariants}
-            >
-              Let's Connect
-            </motion.h2>
+        <motion.h2 
+          className="text-4xl md:text-5xl font-bold mb-4 text-center"
+          variants={itemVariants}
+        >
+          <span className="bg-gradient-to-r from-white to-gray-400 text-transparent bg-clip-text">
+             Let's Connect
+          </span>
+        </motion.h2>
             <motion.p 
               className="text-gray-400 max-w-2xl mx-auto text-base md:text-lg font-normal"
               variants={itemVariants}

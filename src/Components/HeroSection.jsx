@@ -3,7 +3,8 @@
   import React from "react";
   import { motion } from "framer-motion";
   import RotatingText from './ui/RotatingText';
-  import Plasma from './ui/Plasma';
+  import LightRays from './ui/LightRays';
+  import CurvedLoop from './ui/CurvedLoop';
 
   function HeroSection() {
    // Animation variants
@@ -23,21 +24,25 @@
    };
 
    return (
-    <div className="relative h-screen overflow-hidden bg-gradient-to-br from-gray-900 via-gray-950 to-black">
-     {/* Plasma Background */}
+    <div className="relative overflow-hidden bg-gradient-to-br from-gray-900 via-gray-950 to-black">
+     {/* Light Rays Background */}
      <div className="absolute inset-0 z-0">
-      <Plasma 
-       color="#26f218" // Green color
-       speed={0.6}
-       direction="forward"
-       scale={1.1}
-       opacity={0.8}
-       mouseInteractive={true}
+      <LightRays
+        raysOrigin="top-center"
+        raysColor="#26f218"
+        raysSpeed={1.5}
+        lightSpread={0.8}
+        rayLength={20}
+        followMouse={true}
+        mouseInfluence={0.1}
+        noiseAmount={0.1}
+        distortion={0.05}
+        className="custom-rays"
       />
      </div>
      
      {/* Center Content */}
-     <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-4">
+     <div className="relative z-10 h-full mt-50  flex flex-col items-center justify-center text-center px-4">
       <motion.div 
        className="flex flex-col items-center justify-center max-w-4xl" // Increased width from max-w-3xl to max-w-4xl
        initial="hidden"
@@ -52,14 +57,13 @@
        >
         <span className="text-white font-extrabold">Hi,I am </span>
         <RotatingText
-         texts={["Ishaan Aggrawal","Gen AI Engineer","Full Stack Developer","Data Scientist"]}
+         texts={["Ishaan Aggrawal","Gen AI Engineer","Web Developer","Data Scientist"]}
          mainClassName="px-2 sm:px-2 md:px-3 bg-green-500 text-white font-bold overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center rounded-lg inline-flex"
          staggerFrom={"first"}
          initial={{ y: "100%" }}
          animate={{ y: 0 }}
          exit={{ y: "-120%" }}
          staggerDuration={0.025}
-         splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1"
          transition={{ type: "spring", damping: 30, stiffness: 400 }}
          rotationInterval={2000}
         />
@@ -96,6 +100,18 @@
         </a>
        </motion.div>
       </motion.div>
+     </div>
+     
+     {/* Curved Loop Text Animation */}
+     <div className="mb-20">
+      <CurvedLoop 
+        marqueeText="Welcome to Ishaan's Portfolio ✦ Welcome to Ishaan's Portfolio✦"
+        speed={2}
+        curveAmount={300}
+        direction="left"
+        interactive={true}
+        className="text-green-400 text-4xl md:text-5xl"
+      />
      </div>
     </div>
    );

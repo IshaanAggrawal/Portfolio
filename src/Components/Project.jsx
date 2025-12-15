@@ -116,11 +116,11 @@ function Projects() {
       <div className="max-w-6xl mx-auto">
         {/* Heading */}
         <motion.h2 
-          className="text-3xl md:text-4xl font-semibold mb-4 text-center"
+          className="text-4xl md:text-5xl font-bold mb-4 text-center"
           variants={itemVariants}
         >
           <span className="bg-gradient-to-r from-white to-gray-400 text-transparent bg-clip-text">
-            My Projects
+             My Projects
           </span>
         </motion.h2>
         <motion.p 
